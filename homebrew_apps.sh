@@ -33,13 +33,11 @@ CASKS=(
     devtoys
     discord
     hiddenbar
-    keka
     maccy
     monitorcontrol
     netnewswire
     onlyoffice
     onyx
-    opera
     podman-desktop
     qbittorrent
     raycast
@@ -69,25 +67,6 @@ tap_repositories() {
     brew tap hashicorp/tap
 }
 
-# Function to uninstall all installed applications and casks
-uninstall_all() {
-    echo "Uninstalling all installed Homebrew apps and casks..."
-    
-    # Uninstall all apps
-    installed_apps=$(brew list --formula)
-    for app in $installed_apps; do
-        echo "Uninstalling $app..."
-        brew uninstall --force $app
-    done
-    
-    # Uninstall all casks
-    installed_casks=$(brew list --cask)
-    for cask in $installed_casks; do
-        echo "Uninstalling $cask..."
-        brew uninstall --cask --force $cask
-    done
-}
-
 # Function to install applications
 install_apps() {
     for app in "${APPS[@]}"; do
@@ -115,7 +94,6 @@ install_casks() {
 # Main script execution
 check_brew
 tap_repositories
-uninstall_all
 install_apps
 install_casks
 
