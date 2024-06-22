@@ -59,6 +59,27 @@ check_brew() {
     else
         echo "Homebrew found."
     fi
+
+    # Add Homebrew to PATH
+    export PATH=$PATH:/opt/homebrew/bin
+
+    # Add Homebrew to .zshrc
+    if ! grep -qx 'export PATH=$PATH:/opt/homebrew/bin' ~/.zshrc; then
+        echo 'export PATH=$PATH:/opt/homebrew/bin' >> ~/.zshrc
+        echo "Added Homebrew to PATH in .zshrc"
+    else
+        echo "Homebrew already in PATH in .zshrc"
+    fi
+}
+
+# Function to install oh-my-zsh
+install_oh_my_zsh() {
+    if [ ! -d "$HOME/.oh-my-zsh" ]; then
+        echo "Installing oh-my-zsh..."
+        sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+    else
+        echo "oh-my-zsh is already installed."
+    fi
 }
 
 # Function to tap necessary repositories
@@ -93,6 +114,7 @@ install_casks() {
 
 # Main script execution
 check_brew
+install_oh_my_zsh
 tap_repositories
 install_apps
 install_casks
