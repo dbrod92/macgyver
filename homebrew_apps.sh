@@ -39,6 +39,7 @@ CASKS=(
     netnewswire
     onlyoffice
     onyx
+    opera
     podman-desktop
     qbittorrent
     raycast
