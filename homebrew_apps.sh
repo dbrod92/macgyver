@@ -33,6 +33,7 @@ CASKS=(
     devtoys
     discord
     hiddenbar
+    keka
     maccy
     monitorcontrol
     netnewswire
