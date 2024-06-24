@@ -1,6 +1,6 @@
-## macgyver
+# macgyver
 
-# My personal, opinionated macOS app and customization deployment
+## My personal, opinionated macOS app and customization deployment
 
 To install apps, packages and with Homebrew - run the command below:
 
