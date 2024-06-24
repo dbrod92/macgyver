@@ -1,7 +1,8 @@
 #!/bin/bash
 
-### list of homebrew package formulae, or brew leaves, to install
-APPS=(
+### List definitions ###
+
+PACKAGES=( ### list of homebrew package formulae, or brew leaves, to install
     docker
     fastfetch
     fzf
@@ -23,8 +24,7 @@ APPS=(
     wget
 )
 
-### List of desktop apps, or brew casks, to install
-CASKS=(
+CASKS=( # List of desktop apps, or brew casks, to install
     1password
     1password-cli
     anydesk
@@ -54,8 +54,21 @@ CASKS=(
     zed
 )
 
-# Function to check if Homebrew is installed
-check_brew() {
+TAPS={ # Homebrew repositories to add
+    homebrew/cask
+    hashicorp/tap
+    FelixKratz/formulae
+}
+
+### End of list definitions ###
+
+install_rosetta() { # For x86 apps support
+    if /usr/bin/pgrep oahd >/dev/null 2>&1; then
+        /usr/sbin/softwareupdate --install-rosetta --agree-to-license
+    fi
+}
+
+install_homebrew() { # or skip if already installed
     if ! command -v brew &> /dev/null; then
         echo "Homebrew not found. Installing Homebrew first."
         /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -76,25 +89,26 @@ check_brew() {
 }
 
 # Function to tap necessary homebrew repositories
-tap_repositories() {
-    brew tap homebrew/cask
-    brew tap hashicorp/tap
+tap_homebrew_repositories() {
+    for tap in "${TAPS[@]}"; do
+        brew tap $tap
+    done
 }
 
 # Function to install applications
-install_apps() {
-    for app in "${APPS[@]}"; do
-        if ! brew list $app &> /dev/null; then
-            echo "Installing $app..."
-            brew install $app
+install_homebrew_packages() {
+    for package in "${PACKAGES[@]}"; do
+        if ! brew list $package &> /dev/null; then
+            echo "Installing $package..."
+            brew install $package
         else
-            echo "$app is already installed."
+            echo "$package is already installed."
         fi
     done
 }
 
-# Function to install casks
-install_casks() {
+
+install_homebrew_casks() { # Function to install casks
     for cask in "${CASKS[@]}"; do
         if ! brew list --cask $cask &> /dev/null; then
             echo "Installing $cask..."
@@ -105,8 +119,7 @@ install_casks() {
     done
 }
 
-# Function to install oh-my-zsh
-install_oh_my_zsh() {
+install_oh_my_zsh() { # Function to install oh-my-zsh
     if [ ! -d "$HOME/.oh-my-zsh" ]; then
         echo "Installing oh-my-zsh..."
         sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
@@ -118,8 +131,9 @@ install_oh_my_zsh() {
 
 
 # Main script execution
-check_brew
-tap_repositories
-install_apps
-install_casks
+install_rosetta
+install_homebrew
+tap_homebrew_repositories
+install_homebrew_packages
+install_homebrew_casks
 install_oh_my_zsh
