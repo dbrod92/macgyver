@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Variables for apps and casks
+### list of homebrew package formulae, or brew leaves, to install
 APPS=(
     docker
     fastfetch
@@ -23,6 +23,7 @@ APPS=(
     wget
 )
 
+### List of desktop apps, or brew casks, to install
 CASKS=(
     1password
     1password-cli
@@ -38,6 +39,7 @@ CASKS=(
     netnewswire
     onlyoffice
     onyx
+    opera
     podman-desktop
     qbittorrent
     raycast
@@ -49,6 +51,7 @@ CASKS=(
     visual-studio-code
     vlc
     zoom
+    zed
 )
 
 # Function to check if Homebrew is installed
@@ -72,17 +75,7 @@ check_brew() {
     fi
 }
 
-# Function to install oh-my-zsh
-install_oh_my_zsh() {
-    if [ ! -d "$HOME/.oh-my-zsh" ]; then
-        echo "Installing oh-my-zsh..."
-        sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-    else
-        echo "oh-my-zsh is already installed."
-    fi
-}
-
-# Function to tap necessary repositories
+# Function to tap necessary homebrew repositories
 tap_repositories() {
     brew tap homebrew/cask
     brew tap hashicorp/tap
@@ -112,11 +105,21 @@ install_casks() {
     done
 }
 
+# Function to install oh-my-zsh
+install_oh_my_zsh() {
+    if [ ! -d "$HOME/.oh-my-zsh" ]; then
+        echo "Installing oh-my-zsh..."
+        sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+    else
+        echo "oh-my-zsh is already installed."
+    fi
+}
+
+
+
 # Main script execution
 check_brew
-install_oh_my_zsh
 tap_repositories
 install_apps
 install_casks
-
-echo "All specified applications and casks have been installed."
+install_oh_my_zsh
