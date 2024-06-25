@@ -4,11 +4,11 @@
 
 ### List definitions ###
 
-TAPS={ # Homebrew repositories to add
+TAPS=( # Homebrew repositories to add
     homebrew/cask
     hashicorp/tap
     FelixKratz/formulae
-}
+)
 
 CASKS=( # List of desktop apps, or brew casks, to install
     1password
@@ -75,7 +75,7 @@ APPLE_STORE_APPS=( ### list of homebrew package formulae, or brew leaves, to ins
 
 set_hostname() { # Prompts you for a macbook name change
     while true; do
-        read -p "Do you want to set the hostname (You will be prompted for your password if you confirm)? (y/n): " RESPONSE
+        read -rp "Do you want to set the hostname (You will be prompted for your password if you confirm)? (y/n): " RESPONSE
         RESPONSE=$(echo "$RESPONSE" | tr '[:upper:]' '[:lower:]')
         case "$RESPONSE" in
             y|yes)
@@ -124,15 +124,15 @@ install_homebrew() { # or skip if already installed
 
 tap_homebrew_repositories() { # based on the list of taps provided
     for tap in "${TAPS[@]}"; do
-        brew tap $tap
+        brew tap "$tap"
     done
 }
 
 install_homebrew_casks() { # based on the list of casks provided
     for cask in "${CASKS[@]}"; do
-        if ! brew list --cask $cask &> /dev/null; then
+        if ! brew list --cask "$cask" &> /dev/null; then
             echo "Installing $cask..."
-            brew install --cask $cask
+            brew install --cask "$cask"
         else
             echo "$cask is already installed."
         fi
@@ -141,9 +141,9 @@ install_homebrew_casks() { # based on the list of casks provided
 
 install_homebrew_packages() { # based on the list of packages provided
     for package in "${PACKAGES[@]}"; do
-        if ! brew list $package &> /dev/null; then
+        if ! brew list "$package" &> /dev/null; then
             echo "Installing $package..."
-            brew install $package
+            brew install "$package"
         else
             echo "$package is already installed."
         fi
@@ -153,7 +153,7 @@ install_homebrew_packages() { # based on the list of packages provided
 install_app_store_apps() { # Requires mas-cli to be installed (pre-included in the - see https://github.com/mas-cli/mas
 # Note: Only works with free apps
     for app in "${APPLE_STORE_APPS[@]}"; do
-        mas lucky "Hologram Desktop"
+        mas lucky "$app"
     done
 }
 
@@ -182,4 +182,3 @@ install_oh_my_zsh
 #### End of main script execution ####
 
 ###################################
-
