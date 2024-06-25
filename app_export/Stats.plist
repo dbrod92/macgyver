@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>BAT_mini_alignment</key>
+	<string>center</string>
+	<key>BAT_mini_color</key>
+	<string>monochrome</string>
+	<key>BAT_mini_label</key>
+	<true/>
+	<key>Battery_barChart_position</key>
+	<integer>2</integer>
+	<key>Battery_battery_additional</key>
+	<string>percentageAndTime</string>
+	<key>Battery_battery_color</key>
+	<true/>
+	<key>Battery_battery_hideAdditionalWhenFull</key>
+	<false/>
+	<key>Battery_battery_position</key>
+	<integer>0</integer>
+	<key>Battery_label_position</key>
+	<integer>3</integer>
+	<key>Battery_mini_position</key>
+	<integer>1</integer>
+	<key>Battery_notifications_low</key>
+	<string>0.25</string>
+	<key>Battery_processes</key>
+	<integer>15</integer>
+	<key>Battery_state</key>
+	<true/>
+	<key>Battery_timeFormat</key>
+	<string>short</string>
+	<key>Battery_widget</key>
+	<string>battery</string>
+	<key>Bluetooth_label_position</key>
+	<integer>1</integer>
+	<key>Bluetooth_sensors_position</key>
+	<integer>0</integer>
+	<key>Bluetooth_state</key>
+	<false/>
+	<key>Bluetooth_widget</key>
+	<string></string>
+	<key>CPU_barChart_position</key>
+	<integer>4</integer>
+	<key>CPU_label_position</key>
+	<integer>1</integer>
+	<key>CPU_lineChart_position</key>
+	<integer>3</integer>
+	<key>CPU_mini_alignment</key>
+	<string>center</string>
+	<key>CPU_mini_color</key>
+	<string>monochrome</string>
+	<key>CPU_mini_label</key>
+	<true/>
+	<key>CPU_mini_position</key>
+	<integer>0</integer>
+	<key>CPU_pieChart_position</key>
+	<integer>5</integer>
+	<key>CPU_processes</key>
+	<integer>15</integer>
+	<key>CPU_state</key>
+	<true/>
+	<key>CPU_tachometer_position</key>
+	<integer>2</integer>
+	<key>CPU_updateInterval</key>
+	<integer>10</integer>
+	<key>CPU_updateTopInterval</key>
+	<integer>5</integer>
+	<key>CPU_widget</key>
+	<string>mini</string>
+	<key>Disk_barChart_position</key>
+	<integer>3</integer>
+	<key>Disk_disk</key>
+	<string>Macintosh HD</string>
+	<key>Disk_label_position</key>
+	<integer>1</integer>
+	<key>Disk_memory_orderReversed</key>
+	<false/>
+	<key>Disk_memory_position</key>
+	<integer>4</integer>
+	<key>Disk_mini_position</key>
+	<integer>0</integer>
+	<key>Disk_networkChart_position</key>
+	<integer>6</integer>
+	<key>Disk_pieChart_position</key>
+	<integer>2</integer>
+	<key>Disk_pie_chart_label</key>
+	<true/>
+	<key>Disk_pie_chart_monochrome</key>
+	<false/>
+	<key>Disk_removable</key>
+	<false/>
+	<key>Disk_speed_position</key>
+	<integer>5</integer>
+	<key>Disk_state</key>
+	<true/>
+	<key>Disk_updateInterval</key>
+	<integer>30</integer>
+	<key>Disk_widget</key>
+	<string>mini</string>
+	<key>GPU_barChart_position</key>
+	<integer>3</integer>
+	<key>GPU_label_position</key>
+	<integer>1</integer>
+	<key>GPU_lineChart_position</key>
+	<integer>2</integer>
+	<key>GPU_mini_alignment</key>
+	<string>center</string>
+	<key>GPU_mini_position</key>
+	<integer>0</integer>
+	<key>GPU_showType</key>
+	<true/>
+	<key>GPU_state</key>
+	<false/>
+	<key>GPU_tachometer_position</key>
+	<integer>4</integer>
+	<key>GPU_updateInterval</key>
+	<integer>10</integer>
+	<key>GPU_widget</key>
+	<string>mini</string>
+	<key>LaunchAtLoginNext</key>
+	<true/>
+	<key>NSNavLastRootDirectory</key>
+	<string>~/Documents</string>
+	<key>NSStatusItem Preferred Position Battery_battery</key>
+	<real>245</real>
+	<key>NSStatusItem Preferred Position CPU_mini</key>
+	<real>360</real>
+	<key>NSStatusItem Preferred Position Disk_mini</key>
+	<real>313</real>
+	<key>NSStatusItem Preferred Position Sensors_Text</key>
+	<real>377</real>
+	<key>NSStatusItem Preferred Position Sensors_sensors</key>
+	<integer>407</integer>
+	<key>NSToolbar Configuration eu.exelban.Stats.Settings.Toolbar</key>
+	<dict>
+		<key>TB Display Mode</key>
+		<integer>1</integer>
+		<key>TB Icon Size Mode</key>
+		<integer>1</integer>
+		<key>TB Is Shown</key>
+		<true/>
+		<key>TB Size Mode</key>
+		<integer>1</integer>
+	</dict>
+	<key>NSWindow Frame NSNavPanelAutosaveName</key>
+	<string>640 694 430 163 0 0 1710 1068 </string>
+	<key>Network_label_position</key>
+	<integer>1</integer>
+	<key>Network_networkChart_position</key>
+	<integer>2</integer>
+	<key>Network_reader</key>
+	<string>interface</string>
+	<key>Network_speed_position</key>
+	<integer>0</integer>
+	<key>Network_state</key>
+	<false/>
+	<key>Network_widget</key>
+	<string>speed</string>
+	<key>RAM_barChart_position</key>
+	<integer>4</integer>
+	<key>RAM_label_position</key>
+	<integer>1</integer>
+	<key>RAM_lineChart_position</key>
+	<integer>3</integer>
+	<key>RAM_memory_position</key>
+	<integer>2</integer>
+	<key>RAM_mini_alignment</key>
+	<string>center</string>
+	<key>RAM_mini_position</key>
+	<integer>0</integer>
+	<key>RAM_pieChart_position</key>
+	<integer>5</integer>
+	<key>RAM_processes</key>
+	<integer>15</integer>
+	<key>RAM_state</key>
+	<false/>
+	<key>RAM_tachometer_position</key>
+	<integer>6</integer>
+	<key>RAM_updateInterval</key>
+	<integer>10</integer>
+	<key>RAM_updateTopInterval</key>
+	<integer>5</integer>
+	<key>RAM_widget</key>
+	<string>mini</string>
+	<key>SSD_bar_chart_box</key>
+	<true/>
+	<key>SSD_bar_chart_frame</key>
+	<false/>
+	<key>SSD_bar_chart_label</key>
+	<true/>
+	<key>SSD_mini_alignment</key>
+	<string>center</string>
+	<key>SSD_mini_label</key>
+	<true/>
+	<key>Sensors_barChart_position</key>
+	<integer>2</integer>
+	<key>Sensors_bar_chart_box</key>
+	<false/>
+	<key>Sensors_bar_chart_frame</key>
+	<true/>
+	<key>Sensors_bar_chart_label</key>
+	<false/>
+	<key>Sensors_hid</key>
+	<false/>
+	<key>Sensors_label_position</key>
+	<integer>1</integer>
+	<key>Sensors_sensors_mode</key>
+	<string>automatic</string>
+	<key>Sensors_sensors_position</key>
+	<integer>0</integer>
+	<key>Sensors_sensors_size</key>
+	<false/>
+	<key>Sensors_speed</key>
+	<false/>
+	<key>Sensors_state</key>
+	<true/>
+	<key>Sensors_updateInterval</key>
+	<integer>2</integer>
+	<key>Sensors_widget</key>
+	<string>sensors</string>
+	<key>dockIcon</key>
+	<false/>
+	<key>runAtLoginInitialized</key>
+	<true/>
+	<key>sensor_ANE MTR Temp Sensor1</key>
+	<false/>
+	<key>sensor_Average CPU</key>
+	<false/>
+	<key>sensor_Average SOC</key>
+	<false/>
+	<key>sensor_GPU MTR Temp Sensor1</key>
+	<false/>
+	<key>sensor_GPU MTR Temp Sensor4</key>
+	<false/>
+	<key>sensor_Hottest CPU</key>
+	<true/>
+	<key>sensor_Hottest SOC</key>
+	<true/>
+	<key>sensor_ISP MTR Temp Sensor5</key>
+	<false/>
+	<key>sensor_NAND CH0 temp</key>
+	<false/>
+	<key>sensor_PDTR</key>
+	<false/>
+	<key>sensor_PMGR SOC Die Temp Sensor0</key>
+	<false/>
+	<key>sensor_PMGR SOC Die Temp Sensor1</key>
+	<false/>
+	<key>sensor_PMGR SOC Die Temp Sensor2</key>
+	<false/>
+	<key>sensor_PMU TP3w</key>
+	<false/>
+	<key>sensor_PMU ldo10</key>
+	<false/>
+	<key>sensor_PMU ldo14</key>
+	<false/>
+	<key>sensor_PMU ldo16</key>
+	<false/>
+	<key>sensor_PMU ldo19</key>
+	<false/>
+	<key>sensor_PMU tcal</key>
+	<false/>
+	<key>sensor_PMU tdev3</key>
+	<false/>
+	<key>sensor_PMU tdev4</key>
+	<false/>
+	<key>sensor_PMU tdev5</key>
+	<false/>
+	<key>sensor_PMU tdev7</key>
+	<false/>
+	<key>sensor_PMU tdev8</key>
+	<false/>
+	<key>sensor_PMU tdie1</key>
+	<false/>
+	<key>sensor_PMU tdie2</key>
+	<false/>
+	<key>sensor_PMU tdie4</key>
+	<false/>
+	<key>sensor_PMU tdie5</key>
+	<false/>
+	<key>sensor_PMU tdie6</key>
+	<false/>
+	<key>sensor_PMU tdie7</key>
+	<false/>
+	<key>sensor_PMU tdie8</key>
+	<false/>
+	<key>sensor_PMU2 TR0Z</key>
+	<false/>
+	<key>sensor_PMU2 TR1l</key>
+	<false/>
+	<key>sensor_PPBR</key>
+	<false/>
+	<key>sensor_PSTR</key>
+	<false/>
+	<key>sensor_SOC MTR Temp Sensor0</key>
+	<false/>
+	<key>sensor_SOC MTR Temp Sensor1</key>
+	<false/>
+	<key>sensor_SOC MTR Temp Sensor2</key>
+	<false/>
+	<key>sensor_TB1T</key>
+	<false/>
+	<key>sensor_TB2T</key>
+	<false/>
+	<key>sensor_TH0x</key>
+	<false/>
+	<key>sensor_TW0P</key>
+	<false/>
+	<key>sensor_Te0L</key>
+	<false/>
+	<key>sensor_Te0P</key>
+	<false/>
+	<key>sensor_Total System Consumption</key>
+	<false/>
+	<key>sensor_VD0R</key>
+	<false/>
+	<key>sensor_VP0R</key>
+	<false/>
+	<key>sensor_eACC MTR Temp Sensor0</key>
+	<false/>
+	<key>sensor_eACC MTR Temp Sensor3</key>
+	<false/>
+	<key>sensor_gas gauge battery</key>
+	<false/>
+	<key>sensor_pACC MTR Temp Sensor2</key>
+	<false/>
+	<key>sensor_pACC MTR Temp Sensor3</key>
+	<false/>
+	<key>sensor_pACC MTR Temp Sensor4</key>
+	<false/>
+	<key>sensor_pACC MTR Temp Sensor5</key>
+	<false/>
+	<key>sensor_pACC MTR Temp Sensor7</key>
+	<false/>
+	<key>sensor_pACC MTR Temp Sensor8</key>
+	<false/>
+	<key>sensor_pACC MTR Temp Sensor9</key>
+	<false/>
+	<key>telemetry</key>
+	<true/>
+	<key>telemetry_id</key>
+	<string>9B7A4EFA-9F65-4F2A-8AE5-EA7509A44F7A</string>
+	<key>temperature_units</key>
+	<string>celsius</string>
+	<key>update-interval</key>
+	<string>Once per month</string>
+	<key>updater_check_ts</key>
+	<integer>1718914948</integer>
+	<key>version</key>
+	<string>2.10.18</string>
+</dict>
+</plist>
