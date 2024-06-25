@@ -1,11 +1,14 @@
 #!/bin/bash
 
+# ANSI color codes
+GREEN='\033[0;32m'  # Green color
+NC='\033[0m'        # No color
+
 ############################
 
 ### List definitions ###
 
-TAPS=( # Homebrew repositories to add
-    homebrew/cask
+TAPS=( # Homebrew repositories to add, if neccesary for some apps
     hashicorp/tap
     FelixKratz/formulae
 )
@@ -75,11 +78,11 @@ APPLE_STORE_APPS=( ### list of homebrew package formulae, or brew leaves, to ins
 
 set_hostname() { # Prompts you for a macbook name change
     while true; do
-        read -rp "Do you want to set the hostname (You will be prompted for your password if you confirm)? (y/n): " RESPONSE
+        read -r 'Do you want to set the hostname (You will be prompted for your password if you confirm)? (y/n): ' RESPONSE
         RESPONSE=$(echo "$RESPONSE" | tr '[:upper:]' '[:lower:]')
         case "$RESPONSE" in
             y|yes)
-                read -rp "Enter the desired naem for your macbook: " NEW_HOSTNAME
+                read -r 'Enter the desired naem for your macbook: ' NEW_HOSTNAME
                 sudo -v
                 sudo scutil --set ComputerName "$NEW_HOSTNAME"
                 sudo scutil --set HostName "$NEW_HOSTNAME"
@@ -105,7 +108,7 @@ install_rosetta() { # For x86 apps support
 
 install_homebrew() { # or skip if already installed
     if ! command -v brew &> /dev/null; then
-        echo "Homebrew not found. Installing Homebrew first."
+        printf "${GREEN}Homebrew not found. Installing Homebrew first.${NC}\n"
         /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     else
         echo "Homebrew found."
@@ -125,6 +128,7 @@ install_homebrew() { # or skip if already installed
 
 tap_homebrew_repositories() { # based on the list of taps provided
     for tap in "${TAPS[@]}"; do
+        printf "${GREEN}Adding Homebrew tap $tap...${NC}\n"
         brew tap "$tap"
     done
 }
@@ -132,7 +136,7 @@ tap_homebrew_repositories() { # based on the list of taps provided
 install_homebrew_casks() { # based on the list of casks provided
     for cask in "${CASKS[@]}"; do
         if ! brew list --cask "$cask" &> /dev/null; then
-            echo "Installing $cask..."
+            printf "${GREEN}Installing $cask...${NC}\n"
             brew install --cask "$cask"
         else
             echo "$cask is already installed."
@@ -143,7 +147,7 @@ install_homebrew_casks() { # based on the list of casks provided
 install_homebrew_packages() { # based on the list of packages provided
     for package in "${PACKAGES[@]}"; do
         if ! brew list "$package" &> /dev/null; then
-            echo "Installing $package..."
+            printf "${GREEN}Installing $package...${NC}\n"
             brew install "$package"
         else
             echo "$package is already installed."
@@ -153,14 +157,15 @@ install_homebrew_packages() { # based on the list of packages provided
 
 install_app_store_apps() { # Requires mas-cli to be installed (pre-included in the - see https://github.com/mas-cli/mas
 # Note: Only works with free apps
-    for app in "${APPLE_STORE_APPS[@]}"; do
+    for app_store_app in "${APPLE_STORE_APPS[@]}"; do
+        printf "${GREEN}Installing $app_store_app...${NC}\n"
         mas lucky "$app"
     done
 }
 
 install_oh_my_zsh() { # Note: Automatically reopens the shell, cleaning all history
     if [ ! -d "$HOME/.oh-my-zsh" ]; then
-        echo "Installing oh-my-zsh..."
+        printf "${GREEN}Installing oh-my-zsh...${NC}\n"
         sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
     else
         echo "oh-my-zsh is already installed."
@@ -172,6 +177,7 @@ install_oh_my_zsh() { # Note: Automatically reopens the shell, cleaning all hist
 ###################################
 
 #### Main script execution ####
+printf "${GREEN}Welcome to the 'Macgyver' install script!${NC}\n"
 set_hostname
 install_rosetta
 install_homebrew
