@@ -76,13 +76,14 @@ APPLE_STORE_APPS=( ### list of homebrew package formulae, or brew leaves, to ins
 
 ### Start of function definitions ###
 
-set_hostname() { # Prompts you for a macbook name change
+set_hostname() {
+    # Prompts you for a MacBook name change
     while true; do
-        read -r 'Do you want to set the hostname (You will be prompted for your password if you confirm)? (y/n): ' RESPONSE
+        read -rp "Do you want to set the hostname (You will be prompted for your password if you confirm)? (y/n): " RESPONSE
         RESPONSE=$(echo "$RESPONSE" | tr '[:upper:]' '[:lower:]')
         case "$RESPONSE" in
             y|yes)
-                read -r 'Enter the desired naem for your macbook: ' NEW_HOSTNAME
+                read -rp "Enter the desired name for your MacBook: " NEW_HOSTNAME
                 sudo -v
                 sudo scutil --set ComputerName "$NEW_HOSTNAME"
                 sudo scutil --set HostName "$NEW_HOSTNAME"
