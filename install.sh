@@ -79,6 +79,7 @@ set_hostname() { # Prompts you for a macbook name change
         RESPONSE=$(echo "$RESPONSE" | tr '[:upper:]' '[:lower:]')
         case "$RESPONSE" in
             y|yes)
+                read -rp "Enter the desired naem for your macbook: " NEW_HOSTNAME
                 sudo -v
                 sudo scutil --set ComputerName "$NEW_HOSTNAME"
                 sudo scutil --set HostName "$NEW_HOSTNAME"
