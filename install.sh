@@ -1,28 +1,14 @@
 #!/bin/bash
 
+############################
+
 ### List definitions ###
 
-PACKAGES=( ### list of homebrew package formulae, or brew leaves, to install
-    docker
-    fastfetch
-    fzf
-    git
-    glib
-    go
-    guile
-    helm
-    htop
-    jq
-    kubernetes-cli
-    ncdu
-    pre-commit
-    shellcheck
-    tfenv
-    tldr
-    tmux
-    tree
-    wget
-)
+TAPS={ # Homebrew repositories to add
+    homebrew/cask
+    hashicorp/tap
+    FelixKratz/formulae
+}
 
 CASKS=( # List of desktop apps, or brew casks, to install
     1password
@@ -54,13 +40,61 @@ CASKS=( # List of desktop apps, or brew casks, to install
     zed
 )
 
-TAPS={ # Homebrew repositories to add
-    homebrew/cask
-    hashicorp/tap
-    FelixKratz/formulae
-}
+PACKAGES=( ### list of homebrew package formulae, or brew leaves, to install
+    docker
+    fastfetch
+    fzf
+    git
+    glib
+    go
+    guile
+    helm
+    htop
+    jq
+    kubernetes-cli
+    mas # Required to install App Store free apps
+    ncdu
+    pre-commit
+    shellcheck
+    tfenv
+    tldr
+    tmux
+    tree
+    wget
+)
+
+APPLE_STORE_APPS=( ### list of homebrew package formulae, or brew leaves, to install
+    Hologram Desktop
+)
 
 ### End of list definitions ###
+
+#####################################
+
+### Start of function definitions ###
+
+set_hostname() { # Prompts you for a macbook name change
+    while true; do
+        read -p "Do you want to set the hostname (You will be prompted for your password if you confirm)? (y/n): " RESPONSE
+        RESPONSE=$(echo "$RESPONSE" | tr '[:upper:]' '[:lower:]')
+        case "$RESPONSE" in
+            y|yes)
+                sudo -v
+                sudo scutil --set ComputerName "$NEW_HOSTNAME"
+                sudo scutil --set HostName "$NEW_HOSTNAME"
+                sudo scutil --set LocalHostName "$NEW_HOSTNAME"
+                break
+                ;;
+            n|no)
+                echo "Hostname change aborted. Proceeding to next step..."
+                break
+                ;;
+            *)
+                echo "Please answer y or n."
+                ;;
+        esac
+    done
+}
 
 install_rosetta() { # For x86 apps support
     if /usr/bin/pgrep oahd >/dev/null 2>&1; then
@@ -88,27 +122,13 @@ install_homebrew() { # or skip if already installed
     fi
 }
 
-# Function to tap necessary homebrew repositories
-tap_homebrew_repositories() {
+tap_homebrew_repositories() { # based on the list of taps provided
     for tap in "${TAPS[@]}"; do
         brew tap $tap
     done
 }
 
-# Function to install applications
-install_homebrew_packages() {
-    for package in "${PACKAGES[@]}"; do
-        if ! brew list $package &> /dev/null; then
-            echo "Installing $package..."
-            brew install $package
-        else
-            echo "$package is already installed."
-        fi
-    done
-}
-
-
-install_homebrew_casks() { # Function to install casks
+install_homebrew_casks() { # based on the list of casks provided
     for cask in "${CASKS[@]}"; do
         if ! brew list --cask $cask &> /dev/null; then
             echo "Installing $cask..."
@@ -119,7 +139,25 @@ install_homebrew_casks() { # Function to install casks
     done
 }
 
-install_oh_my_zsh() { # Function to install oh-my-zsh
+install_homebrew_packages() { # based on the list of packages provided
+    for package in "${PACKAGES[@]}"; do
+        if ! brew list $package &> /dev/null; then
+            echo "Installing $package..."
+            brew install $package
+        else
+            echo "$package is already installed."
+        fi
+    done
+}
+
+install_app_store_apps() { # Requires mas-cli to be installed (pre-included in the - see https://github.com/mas-cli/mas
+# Note: Only works with free apps
+    for app in "${APPLE_STORE_APPS[@]}"; do
+        mas lucky "Hologram Desktop"
+    done
+}
+
+install_oh_my_zsh() { # Note: Automatically reopens the shell, cleaning all history
     if [ ! -d "$HOME/.oh-my-zsh" ]; then
         echo "Installing oh-my-zsh..."
         sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
@@ -128,12 +166,20 @@ install_oh_my_zsh() { # Function to install oh-my-zsh
     fi
 }
 
+### End of function definitions ###
 
+###################################
 
-# Main script execution
+#### Main script execution ####
+set_hostname
 install_rosetta
 install_homebrew
 tap_homebrew_repositories
-install_homebrew_packages
 install_homebrew_casks
+install_homebrew_packages
+install_app_store_apps
 install_oh_my_zsh
+#### End of main script execution ####
+
+###################################
+
