@@ -191,6 +191,7 @@ install_homebrew_casks
 install_homebrew_packages
 install_app_store_apps
 install_oh_my_zsh
+printf "${GREEN}You're done!${NC}\n"
 #### End of main script execution ####
 
 ###################################
