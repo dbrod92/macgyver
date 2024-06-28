@@ -22,6 +22,8 @@ CASKS=( # List of desktop apps, or brew casks, to install
     devtoys
     discord
     hiddenbar
+    keka
+    krita
     maccy
     monitorcontrol
     netnewswire
