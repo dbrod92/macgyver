@@ -10,7 +10,6 @@ NC='\033[0m'        # No color
 
 TAPS=( # Homebrew repositories to add, if neccesary for some apps
     hashicorp/tap
-    FelixKratz/formulae
 )
 
 CASKS=( # List of desktop apps, or brew casks, to install
@@ -23,12 +22,14 @@ CASKS=( # List of desktop apps, or brew casks, to install
     devtoys
     discord
     hiddenbar
+    keka
+    krita
     maccy
     monitorcontrol
     netnewswire
     onlyoffice
     onyx
-    opera
+    orion
     podman-desktop
     qbittorrent
     raycast
@@ -39,16 +40,14 @@ CASKS=( # List of desktop apps, or brew casks, to install
     steam
     visual-studio-code
     vlc
+    whatsapp
     zoom
     zed
 )
 
 PACKAGES=( ### list of homebrew package formulae, or brew leaves, to install
     docker
-    fastfetch
-    fzf
     git
-    glib
     go
     guile
     helm
@@ -67,7 +66,6 @@ PACKAGES=( ### list of homebrew package formulae, or brew leaves, to install
 )
 
 APPLE_STORE_APPS=( ### list of homebrew package formulae, or brew leaves, to install
-    Hologram Desktop
 )
 
 ### End of list definitions ###
