@@ -29,7 +29,7 @@ CASKS=( # List of desktop apps, or brew casks, to install
     netnewswire
     onlyoffice
     onyx
-    opera
+    orion
     podman-desktop
     qbittorrent
     raycast
